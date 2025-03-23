@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Events - Shree Enviro Tech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../images/logo.png" alt="Shree Enviro Tech Logo" class="sidebar-logo">
+                <h3>Admin Panel</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="dashboard.html"><i class="fa fa-dashboard"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="manage-projects.html"><i class="fa fa-briefcase"></i> Projects</a>
+                    </li>
+                    <li class="active">
+                        <a href="manage-events.html"><i class="fa fa-calendar"></i> Events</a>
+                    </li>
+                    <li>
+                        <a href="manage-clients.html"><i class="fa fa-users"></i> Clients</a>
+                    </li>
+                    <li>
+                        <a href="view-submissions.html"><i class="fa fa-envelope"></i> Contact Forms</a>
+                    </li>
+                    <li>
+                        <a href="#" id="logoutBtn"><i class="fa fa-sign-out"></i> Logout</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1>Manage Events</h1>
+                <button class="add-btn" id="addEventBtn">
+                    <i class="fa fa-plus"></i> Add New Event
+                </button>
+            </header>
+
+            <div class="content-body">
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Date</th>
+                                <th>Location</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="eventsTableBody">
+                            <!-- Events will be loaded dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add/Edit Event Modal -->
+    <div class="modal" id="eventModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Add New Event</h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <form id="eventForm" class="admin-form">
+                <div class="form-group">
+                    <label for="eventTitle">Title</label>
+                    <input type="text" id="eventTitle" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventDate">Date</label>
+                    <input type="date" id="eventDate" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventTime">Time</label>
+                    <input type="time" id="eventTime" name="time" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventLocation">Location</label>
+                    <input type="text" id="eventLocation" name="location" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventDescription">Description</label>
+                    <textarea id="eventDescription" name="description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="eventImage">Image URL</label>
+                    <input type="text" id="eventImage" name="image" required>
+                </div>
+                <input type="hidden" id="eventId" name="id">
+                <button type="submit" class="submit-btn">Save Event</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/admin/auth.js"></script>
+    <script src="../js/admin/events.js"></script>
+</body>
+</html>

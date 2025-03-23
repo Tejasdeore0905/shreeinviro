@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Projects - Shree Enviro Tech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../images/logo.png" alt="Shree Enviro Tech Logo" class="sidebar-logo">
+                <h3>Admin Panel</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="dashboard.html"><i class="fa fa-dashboard"></i> Dashboard</a>
+                    </li>
+                    <li class="active">
+                        <a href="manage-projects.html"><i class="fa fa-briefcase"></i> Projects</a>
+                    </li>
+                    <li>
+                        <a href="manage-events.html"><i class="fa fa-calendar"></i> Events</a>
+                    </li>
+                    <li>
+                        <a href="manage-clients.html"><i class="fa fa-users"></i> Clients</a>
+                    </li>
+                    <li>
+                        <a href="view-submissions.html"><i class="fa fa-envelope"></i> Contact Forms</a>
+                    </li>
+                    <li>
+                        <a href="#" id="logoutBtn"><i class="fa fa-sign-out"></i> Logout</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1>Manage Projects</h1>
+                <button class="add-btn" id="addProjectBtn">
+                    <i class="fa fa-plus"></i> Add New Project
+                </button>
+            </header>
+
+            <div class="content-body">
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Location</th>
+                                <th>Client</th>
+                                <th>Category</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="projectsTableBody">
+                            <!-- Projects will be loaded dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add/Edit Project Modal -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Add New Project</h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <form id="projectForm" class="admin-form">
+                <div class="form-group">
+                    <label for="projectTitle">Title</label>
+                    <input type="text" id="projectTitle" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="projectLocation">Location</label>
+                    <input type="text" id="projectLocation" name="location" required>
+                </div>
+                <div class="form-group">
+                    <label for="projectClient">Client</label>
+                    <input type="text" id="projectClient" name="client" required>
+                </div>
+                <div class="form-group">
+                    <label for="projectCapacity">Capacity</label>
+                    <input type="text" id="projectCapacity" name="capacity" required>
+                </div>
+                <div class="form-group">
+                    <label for="projectCategory">Category</label>
+                    <select id="projectCategory" name="category" required>
+                        <option value="WTP">Water Treatment Plant</option>
+                        <option value="ETP">Effluent Treatment Plant</option>
+                        <option value="STP">Sewage Treatment Plant</option>
+                        <option value="RO">Reverse Osmosis Plant</option>
+                        <option value="DM">Demineralization Plant</option>
+                        <option value="CPU">CPU Water Treatment</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="projectDescription">Description</label>
+                    <textarea id="projectDescription" name="description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="projectImage">Image URL</label>
+                    <input type="text" id="projectImage" name="image" required>
+                </div>
+                <input type="hidden" id="projectId" name="id">
+                <button type="submit" class="submit-btn">Save Project</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/admin/auth.js"></script>
+    <script src="../js/admin/projects.js"></script>
+</body>
+</html>

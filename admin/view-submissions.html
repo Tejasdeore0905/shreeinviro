@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form Submissions - Shree Enviro Tech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../images/logo.png" alt="Shree Enviro Tech Logo" class="sidebar-logo">
+                <h3>Admin Panel</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="dashboard.html"><i class="fa fa-dashboard"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="manage-projects.html"><i class="fa fa-briefcase"></i> Projects</a>
+                    </li>
+                    <li>
+                        <a href="manage-events.html"><i class="fa fa-calendar"></i> Events</a>
+                    </li>
+                    <li>
+                        <a href="manage-clients.html"><i class="fa fa-users"></i> Clients</a>
+                    </li>
+                    <li class="active">
+                        <a href="view-submissions.html"><i class="fa fa-envelope"></i> Contact Forms</a>
+                    </li>
+                    <li>
+                        <a href="#" id="logoutBtn"><i class="fa fa-sign-out"></i> Logout</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1>Contact Form Submissions</h1>
+                <div class="filter-controls">
+                    <select id="statusFilter">
+                        <option value="all">All Messages</option>
+                        <option value="unread">Unread</option>
+                        <option value="read">Read</option>
+                    </select>
+                </div>
+            </header>
+
+            <div class="content-body">
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Subject</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="submissionsTableBody">
+                            <!-- Submissions will be loaded dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- View Message Modal -->
+    <div class="modal" id="messageModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">View Message</h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <div class="message-details">
+                <div class="message-header">
+                    <div class="message-meta">
+                        <p><strong>From:</strong> <span id="messageFrom"></span></p>
+                        <p><strong>Email:</strong> <span id="messageEmail"></span></p>
+                        <p><strong>Date:</strong> <span id="messageDate"></span></p>
+                        <p><strong>Subject:</strong> <span id="messageSubject"></span></p>
+                    </div>
+                </div>
+                <div class="message-body">
+                    <p id="messageContent"></p>
+                </div>
+                <div class="message-actions">
+                    <button id="replyBtn" class="reply-btn">
+                        <i class="fa fa-reply"></i> Reply
+                    </button>
+                    <button id="deleteMessageBtn" class="delete-btn">
+                        <i class="fa fa-trash"></i> Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/admin/auth.js"></script>
+    <script src="../js/admin/submissions.js"></script>
+</body>
+</html>
