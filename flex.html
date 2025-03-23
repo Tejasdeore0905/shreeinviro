@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Header - Shree Enviro Tech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">Shree Enviro Tech</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="flex-hero">
+        <div class="container">
+            <h1>Flexible Solutions for Every Need</h1>
+            <p>Customized environmental solutions that adapt to your requirements</p>
+        </div>
+    </section>
+
+    <section class="flex-content">
+        <div class="container">
+            <div class="flex-grid">
+                <div class="flex-item">
+                    <div class="icon">
+                        <i class="fa fa-cogs"></i>
+                    </div>
+                    <h3>Customizable Solutions</h3>
+                    <p>Tailored environmental solutions designed to meet your specific needs and requirements.</p>
+                </div>
+                <div class="flex-item">
+                    <div class="icon">
+                        <i class="fa fa-leaf"></i>
+                    </div>
+                    <h3>Eco-Friendly Approach</h3>
+                    <p>Sustainable and environmentally conscious solutions for a better future.</p>
+                </div>
+                <div class="flex-item">
+                    <div class="icon">
+                        <i class="fa fa-line-chart"></i>
+                    </div>
+                    <h3>Scalable Systems</h3>
+                    <p>Solutions that grow with your business needs and adapt to changing requirements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="container">
+            <div class="feature-grid">
+                <div class="feature-image">
+                    <img src="images/flex/feature1.jpg" alt="Flexible Solutions">
+                </div>
+                <div class="feature-content">
+                    <h2>Why Choose Our Flexible Solutions?</h2>
+                    <ul class="feature-list">
+                        <li><i class="fa fa-check"></i> Adaptable to changing needs</li>
+                        <li><i class="fa fa-check"></i> Cost-effective implementation</li>
+                        <li><i class="fa fa-check"></i> Quick deployment</li>
+                        <li><i class="fa fa-check"></i> Easy maintenance</li>
+                        <li><i class="fa fa-check"></i> Future-proof design</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@shreeenvirotech.com</p>
+                <p>Phone: +91 1234567890</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Shree Enviro Tech. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <style>
+        .flex-hero {
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/flex/hero.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+            margin-bottom: 60px;
+        }
+
+        .flex-content {
+            padding: 60px 0;
+            background: #f8f9fa;
+        }
+
+        .flex-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .flex-item {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .flex-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .flex-item .icon {
+            font-size: 2.5rem;
+            color: #1a4b8c;
+            margin-bottom: 20px;
+        }
+
+        .flex-item h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .features-section {
+            padding: 60px 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .feature-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .feature-content h2 {
+            color: #1a4b8c;
+            margin-bottom: 30px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-list li i {
+            color: #4CAF50;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-image {
+                order: 2;
+            }
+
+            .feature-content {
+                order: 1;
+            }
+        }
+    </style>
+</body>
+</html>

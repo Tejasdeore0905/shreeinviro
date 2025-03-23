@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - Shree Enviro Tech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">Shree Enviro Tech</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="events.html" class="active">Events</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="events-hero">
+        <div class="container">
+            <h1>Events & News</h1>
+            <p>Stay updated with our latest events and industry news</p>
+        </div>
+    </section>
+
+    <section class="events-section">
+        <div class="container">
+            <div class="events-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="upcoming">Upcoming</button>
+                <button class="filter-btn" data-filter="past">Past</button>
+            </div>
+
+            <div id="events-container" class="events-grid">
+                <!-- Events will be loaded dynamically via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@shreeenvirotech.com</p>
+                <p>Phone: +91 1234567890</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Shree Enviro Tech. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+    // Sample events data (in a real application, this would come from a server)
+    const events = [
+        {
+            id: 1,
+            title: "Environmental Technology Summit 2025",
+            description: "Join us for the latest innovations in environmental technology",
+            date: "2025-04-15",
+            location: "Green Convention Center, Mumbai",
+            image: "images/events/summit.jpg",
+            category: "upcoming"
+        },
+        {
+            id: 2,
+            title: "Water Treatment Workshop",
+            description: "Learn about advanced water treatment techniques",
+            date: "2025-03-10",
+            location: "Tech Hub, Delhi",
+            image: "images/events/workshop.jpg",
+            category: "past"
+        },
+        {
+            id: 3,
+            title: "Industry Conference 2025",
+            description: "Annual conference on environmental solutions",
+            date: "2025-05-20",
+            location: "Eco Center, Bangalore",
+            image: "images/events/conference.jpg",
+            category: "upcoming"
+        }
+    ];
+
+    // Store events in localStorage for demo purposes
+    localStorage.setItem('events', JSON.stringify(events));
+
+    // Filter functionality
+    document.querySelectorAll('.filter-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const filter = button.dataset.filter;
+            
+            // Update active button
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            // Filter events
+            const filteredEvents = filter === 'all' 
+                ? events 
+                : events.filter(event => event.category === filter);
+            
+            // Update display
+            const container = document.getElementById('events-container');
+            container.innerHTML = filteredEvents.map(event => `
+                <div class="event-card" data-category="${event.category}">
+                    <img src="${event.image}" alt="${event.title}">
+                    <div class="event-content">
+                        <h3>${event.title}</h3>
+                        <p class="event-date"><i class="fa fa-calendar"></i> ${event.date}</p>
+                        <p class="event-location"><i class="fa fa-map-marker"></i> ${event.location}</p>
+                        <p>${event.description}</p>
+                        <a href="#" class="btn">Register Now</a>
+                    </div>
+                </div>
+            `).join('');
+        });
+    });
+
+    // Initial load
+    document.querySelector('.filter-btn[data-filter="all"]').click();
+    </script>
+</body>
+</html>

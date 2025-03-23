@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Clients - Shree Enviro Tech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">Shree Enviro Tech</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="clients-hero">
+        <div class="container">
+            <h1>Our Valued Clients</h1>
+            <p>Trusted by leading industries across India</p>
+        </div>
+    </section>
+
+    <section class="clients-section">
+        <div class="container">
+            <div class="client-grid" id="clientGrid">
+                <!-- Clients will be loaded dynamically via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="container">
+            <h2>Client Testimonials</h2>
+            <div class="testimonial-slider" id="testimonialSlider">
+                <!-- Testimonials will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@shreeenvirotech.com</p>
+                <p>Phone: +91 1234567890</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Shree Enviro Tech. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Sample client data (in production, this would come from a server)
+        const clients = [
+            {
+                name: "ABC Industries Ltd",
+                logo: "images/clients/client1.jpg",
+                industry: "Manufacturing",
+                location: "Mumbai"
+            },
+            {
+                name: "XYZ Corporation",
+                logo: "images/clients/client2.jpg",
+                industry: "Pharmaceuticals",
+                location: "Pune"
+            },
+            {
+                name: "PQR Textiles",
+                logo: "images/clients/client3.jpg",
+                industry: "Textile",
+                location: "Ahmedabad"
+            }
+        ];
+
+        const testimonials = [
+            {
+                name: "John Doe",
+                position: "Plant Manager, ABC Industries",
+                content: "Shree Enviro Tech's water treatment solutions have significantly improved our operational efficiency.",
+                image: "images/testimonials/testimonial1.jpg"
+            },
+            {
+                name: "Jane Smith",
+                position: "Director, XYZ Corporation",
+                content: "Their expertise in industrial water treatment is unmatched. Highly recommended!",
+                image: "images/testimonials/testimonial2.jpg"
+            }
+        ];
+
+        // Function to create client cards
+        function createClientCards() {
+            const clientGrid = document.getElementById('clientGrid');
+            
+            clients.forEach(client => {
+                const card = document.createElement('div');
+                card.className = 'client-card';
+                
+                card.innerHTML = `
+                    <div class="client-logo">
+                        <img src="${client.logo}" alt="${client.name} Logo">
+                    </div>
+                    <div class="client-info">
+                        <h3>${client.name}</h3>
+                        <p><strong>Industry:</strong> ${client.industry}</p>
+                        <p><strong>Location:</strong> ${client.location}</p>
+                    </div>
+                `;
+                
+                clientGrid.appendChild(card);
+            });
+        }
+
+        // Function to create testimonial slides
+        function createTestimonials() {
+            const slider = document.getElementById('testimonialSlider');
+            
+            testimonials.forEach(testimonial => {
+                const slide = document.createElement('div');
+                slide.className = 'testimonial-slide';
+                
+                slide.innerHTML = `
+                    <div class="testimonial-content">
+                        <img src="${testimonial.image}" alt="${testimonial.name}">
+                        <blockquote>${testimonial.content}</blockquote>
+                        <cite>
+                            <strong>${testimonial.name}</strong>
+                            <span>${testimonial.position}</span>
+                        </cite>
+                    </div>
+                `;
+                
+                slider.appendChild(slide);
+            });
+        }
+
+        // Load content when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            createClientCards();
+            createTestimonials();
+        });
+    </script>
+
+    <style>
+        .clients-hero {
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/clients/hero.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+            margin-bottom: 60px;
+        }
+
+        .clients-section {
+            padding: 60px 0;
+        }
+
+        .client-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .client-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .client-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .client-logo {
+            height: 150px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+        }
+
+        .client-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .client-info {
+            padding: 20px;
+        }
+
+        .testimonials-section {
+            background: #f8f9fa;
+            padding: 60px 0;
+        }
+
+        .testimonial-slider {
+            margin-top: 40px;
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+        }
+
+        .testimonial-slide {
+            min-width: 100%;
+            scroll-snap-align: start;
+            padding: 20px;
+        }
+
+        .testimonial-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial-content img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-content blockquote {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        .testimonial-content cite {
+            display: block;
+            margin-top: 15px;
+        }
+
+        .testimonial-content cite strong {
+            display: block;
+            color: #1a4b8c;
+        }
+
+        .testimonial-content cite span {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .client-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html>

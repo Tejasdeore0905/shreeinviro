@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Shree Enviro Tech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">Shree Enviro Tech</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="projects-hero">
+        <div class="container">
+            <h1>Our Projects</h1>
+            <p>Discover our successful implementations and case studies</p>
+        </div>
+    </section>
+
+    <section class="projects-grid-section">
+        <div class="container">
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="wtp">Water Treatment</button>
+                <button class="filter-btn" data-filter="etp">Effluent Treatment</button>
+                <button class="filter-btn" data-filter="ro">Reverse Osmosis</button>
+            </div>
+
+            <div id="projects-container" class="projects-grid">
+                <!-- Projects will be loaded dynamically via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@shreeenvirotech.com</p>
+                <p>Phone: +91 1234567890</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Shree Enviro Tech. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+    // Sample project data (in a real application, this would come from a server)
+    const projects = [
+        {
+            id: 1,
+            title: "Industrial Water Treatment Plant",
+            description: "Large-scale water treatment facility for manufacturing unit",
+            image: "images/projects/wtp-1.jpg",
+            category: "wtp"
+        },
+        {
+            id: 2,
+            title: "Textile Industry ETP",
+            description: "Effluent treatment plant for textile manufacturing",
+            image: "images/projects/etp-1.jpg",
+            category: "etp"
+        },
+        {
+            id: 3,
+            title: "Commercial RO System",
+            description: "High-capacity RO system for commercial complex",
+            image: "images/projects/ro-1.jpg",
+            category: "ro"
+        }
+    ];
+
+    // Store projects in localStorage for demo purposes
+    localStorage.setItem('projects', JSON.stringify(projects));
+
+    // Filter functionality
+    document.querySelectorAll('.filter-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const filter = button.dataset.filter;
+            
+            // Update active button
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            // Filter projects
+            const filteredProjects = filter === 'all' 
+                ? projects 
+                : projects.filter(project => project.category === filter);
+            
+            // Update display
+            const container = document.getElementById('projects-container');
+            container.innerHTML = filteredProjects.map(project => `
+                <div class="project-card" data-category="${project.category}">
+                    <img src="${project.image}" alt="${project.title}">
+                    <h3>${project.title}</h3>
+                    <p>${project.description}</p>
+                    <a href="#" class="btn">View Details</a>
+                </div>
+            `).join('');
+        });
+    });
+
+    // Initial load
+    document.querySelector('.filter-btn[data-filter="all"]').click();
+    </script>
+</body>
+</html>
